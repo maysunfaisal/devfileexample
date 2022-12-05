@@ -8,6 +8,7 @@ metadata:
     app.kubernetes.io/managed-by: kustomize
     app.kubernetes.io/name: backend
     app.kubernetes.io/part-of: application-sample
+    maysun: test
   name: deploy-sample
   namespace: application-service-system
 spec:
@@ -24,9 +25,9 @@ spec:
     spec:
       containers:
       - env:
-        - name: FOO
+        - name: FOOFOO
           value: foo1
-        - name: BAR
+        - name: BARBAR
           value: bar1
         image: quay.io/redhat-appstudio/user-workload:application-service-system-component-sample
         imagePullPolicy: Always
@@ -65,6 +66,7 @@ metadata:
     app.kubernetes.io/managed-by: kustomize
     app.kubernetes.io/name: backend
     app.kubernetes.io/part-of: application-sample
+    maysun: test
   name: deploy-sample-2
   namespace: application-service-system
 spec:
@@ -122,6 +124,7 @@ metadata:
     app.kubernetes.io/managed-by: kustomize
     app.kubernetes.io/name: backend
     app.kubernetes.io/part-of: application-sample
+    maysun: test
   name: service-sample
   namespace: application-service-system
 spec:
@@ -143,6 +146,7 @@ metadata:
     app.kubernetes.io/managed-by: kustomize
     app.kubernetes.io/name: backend
     app.kubernetes.io/part-of: application-sample
+    maysun: test
   name: service-sample-2
   namespace: application-service-system
 spec:
@@ -164,6 +168,7 @@ metadata:
     app.kubernetes.io/managed-by: kustomize
     app.kubernetes.io/name: backend
     app.kubernetes.io/part-of: application-sample
+    maysun: test
   name: route-sample
   namespace: application-service-system
 spec:
@@ -189,6 +194,7 @@ metadata:
     app.kubernetes.io/managed-by: kustomize
     app.kubernetes.io/name: backend
     app.kubernetes.io/part-of: application-sample
+    maysun: test
   name: route-sample-2
   namespace: application-service-system
 spec:
@@ -210,6 +216,7 @@ metadata:
   name: ingress-sample
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+    maysun: test
 spec:
   ingressClassName: nginx-example
   rules:
@@ -229,6 +236,7 @@ metadata:
   name: ingress-sample-2
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+    maysun: test
 spec:
   ingressClassName: nginx-example
   rules:
@@ -246,6 +254,8 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: pvc-sample
+  labels:
+    maysun: test
 spec:
   accessModes:
     - ReadWriteOnce
@@ -264,6 +274,8 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: pvc-sample-2
+  labels:
+    maysun: test
 spec:
   accessModes:
     - ReadWriteOnce
