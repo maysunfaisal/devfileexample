@@ -10,7 +10,6 @@ metadata:
     app.kubernetes.io/part-of: application-sample
     maysun: test
   name: deploy-sample
-  namespace: application-service-system
 spec:
   replicas: 1
   selector:
@@ -68,7 +67,6 @@ metadata:
     app.kubernetes.io/part-of: application-sample
     maysun: test
   name: deploy-sample-2
-  namespace: application-service-system
 spec:
   replicas: 1
   selector:
@@ -126,7 +124,6 @@ metadata:
     app.kubernetes.io/part-of: application-sample
     maysun: test
   name: service-sample
-  namespace: application-service-system
 spec:
   ports:
   - port: 1111
@@ -148,7 +145,6 @@ metadata:
     app.kubernetes.io/part-of: application-sample
     maysun: test
   name: service-sample-2
-  namespace: application-service-system
 spec:
   ports:
   - port: 1111
@@ -170,7 +166,6 @@ metadata:
     app.kubernetes.io/part-of: application-sample
     maysun: test
   name: route-sample
-  namespace: application-service-system
 spec:
   host: route111
   port:
@@ -196,7 +191,6 @@ metadata:
     app.kubernetes.io/part-of: application-sample
     maysun: test
   name: route-sample-2
-  namespace: application-service-system
 spec:
   host: route111
   port:
