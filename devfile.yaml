@@ -28,6 +28,7 @@ components:
   - name: kubernetes-deploy
     attributes:
       deployment/replicas: 3
+      deployment/route: route333
       deployment/cpuLimit: '133m'
       deployment/cpuRequest: 13m
       deployment/memoryLimit: 333Mi
