@@ -32,7 +32,9 @@ components:
       deployment/cpuLimit: '133m'
       deployment/cpuRequest: 13m
       deployment/memoryLimit: 333Mi
-      deployment/memoryRequest: 200Mi
+      deployment/memoryRequest: 133Mi
+      deployment/storageLimit: 333Mi
+      deployment/storageRequest: 133Mi
       deployment/container-port: 8381
     kubernetes:
       uri: deploy.yaml
