@@ -48,7 +48,7 @@ commands:
       component: image-build
   - id: deployk8s
     apply:
-      component: kubernetes-deploy
+      component: kubernetes-only-deploy
   - id: deploy
     composite:
       commands:
