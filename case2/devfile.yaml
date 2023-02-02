@@ -25,7 +25,7 @@ components:
         uri: docker/Dockerfile
         buildContext: .
         rootRequired: false
-  - name: kubernetes-deploy
+  - name: kubernetes-only-deploy
     attributes:
       deployment/replicas: 3
       deployment/route: route333
