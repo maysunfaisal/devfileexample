@@ -36,7 +36,7 @@ spec:
             port: 1111
           initialDelaySeconds: 10
           periodSeconds: 10
-        name: container-image
+        name: container-maysun
         ports:
         - containerPort: 1111
         readinessProbe:
