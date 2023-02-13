@@ -1,0 +1,59 @@
+schemaVersion: 2.2.0
+metadata:
+  name: java-springboot
+  version: 1.2.1
+  attributes:
+    alpha.dockerimage-port: 8081
+  displayName: Spring Boot®
+  description: Spring Boot® using Maven
+  icon: https://spring.io/images/projects/spring-edf462fec682b9d48cf628eaf9e19521.svg
+  tags:
+    - Java
+    - Spring Boot
+  projectType: springboot
+  language: Java
+  provider: Red Hat
+  supportUrl: https://github.com/devfile-samples/devfile-support#support-information
+parent:
+  id: java-springboot
+  registryUrl: 'https://registry.devfile.io'
+components:
+  - name: image-build
+    image:
+      imageName: java-springboot-image:latest
+      dockerfile:
+        uri: docker/Dockerfile
+        buildContext: .
+        rootRequired: false
+  - name: kubernetes-only-deploy
+    attributes:
+      deployment/replicas: 3
+      deployment/route: route333
+      deployment/cpuLimit: '133m'
+      deployment/cpuRequest: 13m
+      deployment/memoryLimit: 333Mi
+      deployment/memoryRequest: 133Mi
+      deployment/storageLimit: 333Mi
+      deployment/storageRequest: 133Mi
+      deployment/container-port: 8381
+    kubernetes:
+      uri: nodeploy.yaml
+      endpoints:
+        - name: http-8081
+          targetPort: 8081
+          path: /
+commands:
+  - id: build-image
+    apply:
+      component: image-build
+  - id: deployk8s
+    apply:
+      component: kubernetes-only-deploy
+  - id: deploy
+    composite:
+      commands:
+        - build-image
+        - deployk8s
+      group:
+        kind: deploy
+        isDefault: true
